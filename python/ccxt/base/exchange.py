@@ -322,6 +322,8 @@ class Exchange(object):
     # no lower case l or upper case I, O
     base58_alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
+    isTestnet = False
+
     commonCurrencies = {
         'XBT': 'BTC',
         'BCC': 'BCH',

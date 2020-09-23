@@ -2261,9 +2261,10 @@ class binance(Exchange):
         return result
 
     def sign(self, path, api='public', method='GET', params={}, headers=None, body=None):
-        if not (api in self.urls['api']):
+        urlVariant = 'test' if self.isTestnet else 'api'
+        if not (api in self.urls[urlVariant]):
             raise NotSupported(self.id + ' does not have a testnet/sandbox URL for ' + api + ' endpoints')
-        url = self.urls['api'][api]
+        url = self.urls[urlVariant][api]
         url += '/' + path
         if api == 'wapi':
             url += '.html'
